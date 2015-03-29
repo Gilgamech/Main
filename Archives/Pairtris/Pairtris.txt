@@ -1,0 +1,35 @@
+﻿Tetris multiplayer app
+
+3 pieces: 
+-html5 app
+-concurrency
+-host from phone webserver
+
+HTML5 App
+-Tetris: https://github.com/daltonridenhour/DOM-Tetris
+-Needs to have touch added: http://www.html5rocks.com/en/mobile/touch/
+-Needs to have "concurrent lines" thing built in somehow...
+
+Concurrency
+-Bluetooth
+--Android: http://developer.android.com/guide/topics/wireless/bluetooth.html
+--iOS: http://www.devx.com/wireless/Article/43502/0/page/1
+
+
+Webapp wrapper
+-Phonegap: http://phonegap.com/
+
+References: 
+http://docs.oracle.com/javase/tutorial/networking/datagrams/index.html
+http://gafferongames.com/networking-for-game-programmers/
+http://sixrevisions.com/web-development/html5-iphone-app/#
+http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/
+
+car:
+175	Hood
+75	Radiator
+175	Bumper
+40	Grille
+120	Radiator support
+
+$600

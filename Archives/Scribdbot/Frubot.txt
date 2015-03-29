@@ -1,0 +1,21 @@
+My bot is named Frubot
+
+Normal actions
+Frubot makes a list of all fruit on gameboard
+-List needs to hold type and location
+-List needs a list number?
+-List needs to identify if the fruit's in a group?
+
+-How often to update list?
+-Should we update the list and preference separately?
+
+Frubot orders list by preference
+-Preference is adjusted so fruit types with few pieces have higher preference than those with more pieces
+-Preference is adjusted by distance to next piece of fruit
+-Maybe Frubot will prefer a rare type more than a more common type?
+-Frubot will pick up fruit if the fruit is in its path to another type of fruit
+-Frubot picks up fruit adjacent to its path
+
+Actions if Simplebot is near
+-Reactions need to be adjusted for large v small boards
+

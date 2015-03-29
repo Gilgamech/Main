@@ -1,0 +1,19 @@
+To turn goblin game into pairtris
+
+1. mechanics
+-only drop 1 piece at a time (2nd piece is next game mode)
+-make pieces fall automatically
+
+
+
+2. controls
+-add in touch support later? 
+
+
+3. graphics
+-new bg
+-how many colors of squares?
+-how to group?
+-border (score? next?)
+
+
