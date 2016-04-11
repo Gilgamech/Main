@@ -1,11 +1,1 @@
-This is line 1.
-This is line 2.
-This is line 3.
-This is line 4.
-This is line 5.
-This is line 6.
-This is line 7.
-This is line 8.
-This is line 9.
-This is line 10.
-
+PowerGIL is a Powershell module with many neat features. It's the container for my weird ideas and "inbetween-projects", where I can connect 2 ideas from unrelated projects in a new way. It is the hub of my "parallel learning" system.
