@@ -1,1 +1,1 @@
-PowerGIL is a Powershell module with many neat features. It's the container for my weird ideas and "inbetween-projects", where I can connect 2 ideas from unrelated projects in a new way. It is the hub of my "parallel learning" system.
+PowerGIL is a Powershell module with many neat features. It's the container for my weird ideas and "inbetween-projects", where I can connect 2 ideas from unrelated projects in a new way. It is the hub of my "parallel learning" system. 
