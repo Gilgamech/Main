@@ -1,0 +1,15 @@
+# midi Build: 0 2016-05-14T09:54:49  Copyright Gilgamech Technologies
+	
+Function New-Function {
+	Param(
+		[Parameter(Position=1)]
+		[string]$variable1,
+		[Parameter(Position=2)]
+		[int]$variable2,
+		[Parameter(Position=3)]
+		[switch]$variable3
+	) #end Param
+	
+	
+}; #end New-Function
+	
