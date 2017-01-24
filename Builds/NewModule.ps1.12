@@ -1,0 +1,33 @@
+# .\NewModule.ps1 Build: 12 2016-06-10T08:21:25  Copyright Gilgamech Technologies 
+# Update Path: C:\Dropbox\NewModule.ps1
+# Build : LineNo : Update Notes
+# 8 : 19 :  if ($Variable1) {   $Variable1  }; #end if Variable1
+# 9 : 16 :   [string]$Variable1,
+# 10 : 19 :  if ($Variable1) {   $Variable1  }; #end if Variable1
+# 11 : 15 :  Param(    [Parameter(Mandatory=$True)]    $Function   ) #end Param
+# 12 : 28 : Function Test-Func2 {      }; #end Test-Func2
+$NewModule = 'C:\Dropbox\NewModule.ps1'
+#New-Function
+Function test-function {
+	
+	Param(
+		[ValidateSet("dog", "bog", "log")]
+		[string]$Variable1,
+		[Parameter(Mandatory=$True)]
+		[array]$Function = $Variable1
+	); #end Param
+	
+	if ($Variable1) {
+		$Variable1
+	}; #end if Variable1
+	$function
+	
+}; #end test-function
+Write-Host -f green "C:\Dropbox\NewModule.ps1 build: $((gc $NewModule)[0].split(' ')[3] )"
+
+
+Function Test-Func2 {
+	
+	
+
+}; #end Test-Func2

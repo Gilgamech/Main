@@ -1,0 +1,20 @@
+# .\NewModule.ps1 Build: 1 2016-06-05T21:04:37  Copyright Gilgamech Technologies 
+# Update Path: C:\Dropbox\NewModule.ps1
+# Build : LineNo : Update Notes
+# 
+# 
+# 
+# 0 : 0 : # NewModule.ps1 Build: 0 2016-06-05T21:02:40  Copyright Gilgamech Technologies # Update Path: NewModule.ps1 # Build : LineNo : Update Notes
+# 1 : 9 : Function test-function {     Param(     [array]$Function = "(Find-Function)"    ) #end Param    }; #end test-function
+$NewModule = 'C:\Dropbox\NewModule.ps1'
+Function test-function {
+	
+		Param(
+			[array]$Function = "(Find-Function)"
+		) #end Param
+	
+
+}; #end test-function
+Write-Host -f green "C:\Dropbox\NewModule.ps1 build: $((gc $NewModule)[0].split(' ')[3] )"
+
+

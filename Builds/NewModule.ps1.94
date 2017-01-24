@@ -1,0 +1,62 @@
+# .\NewModule.ps1 Build: 94 2016-06-19T20:15:44  Copyright Gilgamech Technologies 
+# Update Path: C:\Dropbox\NewModule.ps1
+# Build : LineNo : Update Notes
+# 90 : 55 : #a
+# 91 : 55 : #a
+# 92 : 55 : #a
+# 93 : 55 : #a
+# 94 : 55 : #a
+$NewModule = 'C:\Dropbox\NewModule.ps1'
+
+Function New-Fart {
+	
+	
+	Param(
+		[ValidateSet("SilentButDeadly", "Moist", "BeanMasher")]
+		[string]$FartCondition
+	); #end Param
+	$FartCondition
+}; #end New-Fart
+#New-Function
+Function test-function {
+	
+	Param(
+		[string]$Dog = "Labrador",
+		[ValidateSet($true, "bog", "log")]
+		[string]$Variable1,
+		#[Parameter(Mandatory=$True)]
+		[array]$Function = $Variable1
+	); #end Param
+	
+	if ($Variable1) {
+		$Variable1
+	}; #end if Variable1
+	$function
+	
+}; #end test-function
+Write-Host -f green "C:\Dropbox\NewModule.ps1 build: $((gc $NewModule)[0].split(' ')[3] )"
+
+#		[string]$Dog = "Labrador"
+
+Function Test-Func2 {
+	Param(
+		[ValidateSet("Corgi", "Poodle", "Labrador")]
+		[string]$dogs,
+		$Variable1
+	); #end Param
+	if ($dogs) {
+		$dogs
+	}; #end if dogs
+	
+	
+	
+}; #end Test-Func2
+
+
+#a
+#a
+#a
+#a
+#a
+#a
+#a

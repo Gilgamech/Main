@@ -1,0 +1,53 @@
+# .\NewModule.ps1 Build: 80 2016-06-12T19:27:22  Copyright Gilgamech Technologies 
+# Update Path: C:\Dropbox\NewModule.ps1
+# Build : LineNo : Update Notes
+# 76 : 42 :  if _$Dogs_ _   $Dogs  _; #end if Dogs
+# 77 : 31 :   [ValidateSet_"Corgi", "Poodle", "Labrador"_]    [string]$dogs,
+# 78 : 35 :  if _$dogs_ _   $dogs  _; #end if dogs
+# 79 : 9 : Function New_Fart _      _; #end New_Fart
+# 80 : 12 :  Param_    [ValidateSet_"SilentButDeadly", "Moist", "BeanMasher"_]    [string]$FartCondition   _; #end Param
+$NewModule = 'C:\Dropbox\NewModule.ps1'
+Function New-Fart {
+	
+	
+	Param(
+		[ValidateSet("SilentButDeadly", "Moist", "BeanMasher")]
+		[string]$FartCondition
+	); #end Param
+
+}; #end New-Fart
+#New-Function
+Function test-function {
+	
+	Param(
+		[string]$DogVar = "dog"
+		[ValidateSet($true, "bog", "log")]
+		[string]$Variable1,
+		#[Parameter(Mandatory=$True)]
+		[array]$Function = $Variable1
+	); #end Param
+	
+	if ($Variable1) {
+		$Variable1
+	}; #end if Variable1
+	$function
+	
+}; #end test-function
+Write-Host -f green "C:\Dropbox\NewModule.ps1 build: $((Get-Content $NewModule)[0].split(' ')[3] )"
+
+
+Function Test-Func2 {
+	Param(
+		[ValidateSet("Corgi", "Poodle", "Labrador")]
+		[string]$dogs,
+		$Variable1
+	); #end Param
+	if ($dogs) {
+		$dogs
+	}; #end if dogs
+	
+	
+	
+}; #end Test-Func2
+
+

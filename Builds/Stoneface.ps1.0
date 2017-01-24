@@ -1,0 +1,12 @@
+# Stoneface.ps1 Build: 0 2016-06-19T18:47:04  Copyright Gilgamech Technologies
+# Update Path: C:\Dropbox\Stoneface.ps1
+# Build : LineNo : Update Notes
+# 
+# 
+# 
+# 
+# 0 : 0 : # Stoneface.ps1 Build: 0 2016-06-19T18:47:04  Copyright Gilgamech Technologies # Update Path: Stoneface.ps1 # Build : LineNo : Update Notes
+$Stoneface = 'C:\Dropbox\Stoneface.ps1'
+Write-Host -f green "C:\Dropbox\Stoneface.ps1 build: $((gc $Stoneface)[0].split(' ')[3] )"
+
+
