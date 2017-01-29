@@ -1,0 +1,151 @@
+(new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
+netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes
+install-module PsUrl
+
+===PS1 STUFF===
+Start-Process powershell -Verb runAs
+Set-ExecutionPolicy Unrestricted
+Modules folder: C:\Windows\System32\WindowsPowerShell\v1.0\Modules
+Profile folder: C:\Users\Gillie\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+$profile
+
++++SQL 2014+++
+Invoke-Sqlcmd -Query "Select * from LIVINGINTHEDATABASE.DBO.BOBBYTABLE with (nolock) where FOREIGNKEY=(Select FOREIGNKEY from LIVINGINTHEDATABASE.DBO.BOBBYTABLE with (nolock) where PRIMARYKEY in('YOURMOM.COM'))" -ServerInstance "ALLNIGHTLONG.TONIGHT.YOURMOM.COM" | Format-Table
+
+Invoke-Sqlcmd -Query "exec sp_linkedservers" -ServerInstance "ALLNIGHTLONG.TONIGHT.YOURMOM.COM" | Format-Table
+
+Invoke-Sqlcmd -Query "SELECT TOP 10 * from LIVINGINTHEDATABASE.DBO.BOBBYTABLE" -ServerInstance "ALLNIGHTLONG.TONIGHT.YOURMOM.COM" | Format-Table
+
+$DBNameList = @(Invoke-SQLCmd -query "select Name from sysdatabases" -Server DEVSQLSRV) | select-object -expand Name
+
++++VMWare 5.5+++
+Get-VM
+
++++ IIS/APPCMD +++
+c:\windows\system32\inetsrv\appcmd.exe set config "Live Site" -section:system.webServer/httpProtocol /-"customHeaders.[name='RN-Server']"
+c:\windows\system32\inetsrv\appcmd.exe set config "Live Site" -section:system.webServer/httpProtocol /+"customHeaders.[name='RN-Server',value='Preview02']"
+
++++ Email +++
+Send-MailMessage -From "$senderName <$senderAddr>" -To "$recptName <$recptAddr>" -Subject "$emailSubject" -Body $emailBody -SMTPServer $smtpServer -BodyAsHTML
+
++++ PSGet +++
+(new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
+install-module PsUrl
+
++++ PSURL +++
+Get-WebContent http:\\www.johnlscott.com
+
++++ GIT +++
+Install-Module posh-git
+
++++ Environment Variables +++
+$env:JAVA_HOME = "C:\Program Files (x86)\Java\jre1.8.0_31"
+
++++ Elevation +++
+Start-Process -FilePath $cmd -Verb RunAs Powershell
+
++++ Hash +++
+First must be splatted
+$usa_states = @{"NE" = "Nebraska"}
+$usa_states.add("NH","New Hampshire")
+
++++ Audio +++
+Get-DefaultAudioDevice
+Get-AudioDeviceList
+Set-DefaultAudioDevice [-Index] <Int>
+Set-DefaultAudioDevice [-Name] <String>
+Set-DefaultAudioDevice [-InputObject] <AudioDevice>
+Set-DefaultAudioDeviceVolume -Volume <float>
+Get-DefaultAudioDeviceVolume
+Set-DefaultAudioDeviceMute
+Write-DefaultAudioDeviceValue [-StreamValue]
+
++++ Registry +++
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name MouseCornerClipLength -Type DWORD -Value 0
+
++++ DNS Client +++
+Set-DnsClientServerAddress
+
++++ IIS +++
+Add headers: appcmd set config /section:httpProtocol /+customHeaders.[name=' string ']
+Remove headers: appcmd set config /section:httpProtocol /-customHeaders.[name=' string ']
+
++++ HDD +++
+$disk = Get-WmiObject Win32_LogicalDisk -ComputerName rdp4 -Filter "DeviceID='C:'" 
+
++++ File permissions +++
+Get-ACL
+
++++ AD groups +++
+Add-ADGroupMember
+
++++ Math +++
+[math]::pow( 2, 3 )
+http://www.madwithpowershell.com/2013/10/math-in-powershell.html
+
++++ Excel +++
+http://www.madwithpowershell.com/2013/11/using-excel-functions-in-powershell.html
+===Weirdness===
++++SP_Who2 doesn't work+++
+PS SQLSERVER:\> $sqlwho = Invoke-Sqlcmd -Query "sp_who2" -ServerInstance "Reliance-52.summitnet.summitnetworks.com" | Fo
+rmat-Table
+Invoke-Sqlcmd : Duplicate column names are not permitted in SQL PowerShell. To repeat a column, use a column alias for
+the duplicate column in the format Column_Name AS New_Name.
+At line:1 char:11
++ $sqlwho = Invoke-Sqlcmd -Query "sp_who2" -ServerInstance "Reliance-52.summitnet. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SyntaxError: (:) [Invoke-Sqlcmd], SqlPowerShellSqlExecutionException
+    + FullyQualifiedErrorId : DuplicateColumnNameErrorMessage,Microsoft.SqlServer.Management.PowerShell.GetScriptCommand
+
++++From SQL connection to CIFS?+++
+PS SQLSERVER:\> Set-Location \\summitnet\Data\scripts\
+Set-Location : Cannot find path '\\summitnet\Data\scripts\' because it does not exist.
+At line:1 char:1
++ Set-Location \\summitnet\Data\scripts\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\\summitnet\Data\scripts\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS SQLSERVER:\> Set-Location c:
+PS C:\Users\Public\Desktop\Deploy> Set-Location \\summitnet\Data\scripts\
+PS Microsoft.PowerShell.Core\FileSystem::\\summitnet\Data\Scripts>
+
+
+===SETUP===
++++Lync 2013+++
+MS Lync 2013 SDK: http://www.microsoft.com/en-us/download/details.aspx?id=36824
+MS Silverlight 5 tools for VS: http://www.microsoft.com/en-us/download/details.aspx?id=28358
+Change Powershell to use .NET 4.0
+
++++SQL+++
+SQL Server 2014 Feature Pack http://www.microsoft.com/en-us/download/details.aspx?id=42295
+PowerShellTools.msi
+SQLSysClrTypes.msi
+SharedManagementObjects.msi
+Import-Module SQLPS
+Add-PSSnapin SqlServerCmdletSnapin100
+Add-PSSnapin SqlServerProviderSnapin100
+
++++VMWare 5.5+++
+PowerCLI: https://my.vmware.com/web/vmware/details?downloadGroup=PCLI550&productId=352
+Add-PSSnapin VMware.DeployAutomation
+Add-PSSnapin VMware.ImageBuilder
+Add-PSSnapin VMware.VimAutomation.Core
+Add-PSSnapin VMware.VimAutomation.License
+Add-PSSnapin VMware.VimAutomation.Vds
+Set-PowerCLIConfiguration -ProxyPolicy NoProxy -InvalidCertificateAction Ignore
+Connect-VIServer -server LASTNIGHT.YOURMOM.COM -port 9443 -user BONER -pass BUSTINSIDE
+
++++Powershell+++
+https://gallery.technet.microsoft.com/scriptcenter/2d191bcd-3308-4edd-9de2-88dff796b0bc
+Import-Module PSWindowsUpdate
+
++++Email+++
+https://technet.microsoft.com/en-us/library/dn296591.aspx?f=255&MSPPError=-2147217396
+
++++ Audio +++
+https://github.com/cdhunt/WindowsAudioDevice-Powershell-Cmdlet/blob/master/AudioDeviceCmdlets.zip
+
++++ Excel +++
+[reflection.assembly]::LoadWithPartialName( "Microsoft.Office.Interop.Excel" )
+$XL = New-Object -ComObject Excel.Application
